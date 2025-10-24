@@ -1,0 +1,18 @@
+{% extends "payroll/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<h3>{{ title }}</h3>
+<form method="post" novalidate>
+  {% csrf_token %}
+  <div class="row">
+    {% for field in form %}
+      <div class="mb-3 col-md-6">
+        <label class="form-label">{{ field.label_tag }}{{ field.errors }}</label>
+        {% render_field field class="form-control" %}
+      </div>
+    {% endfor %}
+  </div>
+  <button class="btn btn-primary">Save</button>
+  <a class="btn btn-secondary" href="{% url 'payroll:employee_list' %}">Cancel</a>
+</form>
+{% endblock %}

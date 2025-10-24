@@ -1,0 +1,125 @@
+[
+  {
+    "model": "payroll.employee",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "designation": "Software Engineer",
+      "basic_salary": "50000.00",
+      "date_joined": "2024-05-10"
+    }
+  },
+  {
+    "model": "payroll.employee",
+    "pk": 2,
+    "fields": {
+      "first_name": "Priya",
+      "last_name": "Sharma",
+      "email": "priya.sharma@example.com",
+      "designation": "HR Manager",
+      "basic_salary": "60000.00",
+      "date_joined": "2023-11-01"
+    }
+  },
+  {
+    "model": "payroll.employee",
+    "pk": 3,
+    "fields": {
+      "first_name": "Alex",
+      "last_name": "Brown",
+      "email": "alex.brown@example.com",
+      "designation": "Accountant",
+      "basic_salary": "45000.00",
+      "date_joined": "2024-01-15"
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 1,
+    "fields": {
+      "employee": 1,
+      "date": "2025-10-01",
+      "present": true
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 2,
+    "fields": {
+      "employee": 1,
+      "date": "2025-10-02",
+      "present": false
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 3,
+    "fields": {
+      "employee": 2,
+      "date": "2025-10-01",
+      "present": true
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 4,
+    "fields": {
+      "employee": 2,
+      "date": "2025-10-02",
+      "present": true
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 5,
+    "fields": {
+      "employee": 3,
+      "date": "2025-10-01",
+      "present": true
+    }
+  },
+  {
+    "model": "payroll.attendance",
+    "pk": 6,
+    "fields": {
+      "employee": 3,
+      "date": "2025-10-02",
+      "present": false
+    }
+  },
+  {
+    "model": "payroll.payrollrecord",
+    "pk": 1,
+    "fields": {
+      "employee": 1,
+      "month": "2025-10-01",
+      "gross_salary": "50000.00",
+      "net_salary": "47727.27",
+      "created_at": "2025-10-10T08:00:00Z"
+    }
+  },
+  {
+    "model": "payroll.payrollrecord",
+    "pk": 2,
+    "fields": {
+      "employee": 2,
+      "month": "2025-10-01",
+      "gross_salary": "60000.00",
+      "net_salary": "60000.00",
+      "created_at": "2025-10-10T08:05:00Z"
+    }
+  },
+  {
+    "model": "payroll.payrollrecord",
+    "pk": 3,
+    "fields": {
+      "employee": 3,
+      "month": "2025-10-01",
+      "gross_salary": "45000.00",
+      "net_salary": "40909.09",
+      "created_at": "2025-10-10T08:10:00Z"
+    }
+  }
+]

@@ -1,0 +1,33 @@
+{% extends "payroll/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Attendance</h3>
+  <div>
+    <form method="get" action="{% url 'payroll:generate_payroll' %}" class="d-inline">
+      <input type="month" name="month" class="form-control d-inline-block" style="width:200px" value="{{ request.GET.month|default:None }}">
+      <button class="btn btn-outline-primary">Generate Payroll for Month</button>
+    </form>
+  </div>
+</div>
+<form method="post" action="{% url 'payroll:attendance_mark' %}">
+  {% csrf_token %}
+  <div class="row g-2 align-items-end">
+    <div class="col-md-4">{{ form.employee.label_tag }} {% render_field form.employee class="form-select" %}</div>
+    <div class="col-md-3">{{ form.date.label_tag }} {% render_field form.date class="form-control" %}</div>
+    <div class="col-md-2">{{ form.present.label_tag }} {% render_field form.present class="form-check-input" %}</div>
+    <div class="col-md-3"><button class="btn btn-success">Mark Attendance</button></div>
+  </div>
+</form>
+<hr/>
+<table class="table table-sm">
+  <thead><tr><th>Date</th><th>Employee</th><th>Present</th></tr></thead>
+  <tbody>
+    {% for a in attendances %}
+      <tr><td>{{ a.date }}</td><td>{{ a.employee }}</td><td>{{ a.present }}</td></tr>
+    {% empty %}
+      <tr><td colspan="3">No records</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
